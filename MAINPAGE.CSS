@@ -1,69 +1,97 @@
+/* إعدادات عامة */
 body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background-color: #1a365d; /* Dark blue background for entire page */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #1a365d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.slider-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: 80vh;
+}
+
+.slider-item {
+  position: relative;
+  width: 24%;
+  height: 100%;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  border: 2px solid #c4a128;
+  border-radius: 8px;
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 54, 93, 0.9);
+  color: #c4a128;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.slider-item:hover .slider-content {
+  transform: translateY(0);
+}
+
+.slider-content h3 {
+  margin: 0 0 10px;
+  font-size: 2em;
+  color: #dab23d;
+}
+
+.slider-content p {
+  margin: 0;
+  font-size: 1.8em;
+  line-height: 1.4;
+}
+
+/* تخصيص الشاشات الصغيرة */
+@media (max-width: 1024px) {
   .slider-container {
-      display: flex;
-      justify-content: space-between; /* Changed to space-between for full width */
-      gap: 10px;
-      padding: 20px;
-      width: 100%; /* Changed to 100% width */
-      max-width: 100%;
-      height: 80vh; /* Set container height to 80% of viewport height */
+    flex-direction: column;
+    align-items: center;
   }
 
   .slider-item {
-      position: relative;
-      width: 24%; /* Changed to percentage width to fit 4 items */
-      height: 100%; /* Take full height of container */
-      transition: all 0.5s ease; /* Changed to all for smooth transitions */
-      overflow: hidden;
-      border: 2px solid #c4a128; /* Golden border */
-      border-radius: 8px;
+    width: 80%;
+    margin-bottom: 15px;
   }
 
   .slider-item:hover {
-      width: 35%; /* Adjusted hover width */
-      height: 90vh; /* Increase height to 90% of viewport on hover */
-      transform: translateY(-5vh); /* Move up slightly to maintain center alignment */
+    width: 90%;
+    height: auto;
   }
 
-  .slider-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  .slider-content h3, .slider-content p {
+    font-size: 1.5em;
+  }
+}
+
+/* تخصيص الشاشات الصغيرة جدًا */
+@media (max-width: 768px) {
+  .slider-item {
+    width: 95%;
   }
 
-  .slider-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(26, 54, 93, 0.9); /* Semi-transparent dark blue */
-      color: #c4a128; /* Golden text */
-      padding: 20px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
+  .slider-content h3, .slider-content p {
+    font-size: 1.2em;
   }
-
-  .slider-item:hover .slider-content {
-      transform: translateY(0);
-  }
-
-  .slider-content h3 {
-      margin: 0 0 10px;
-      font-size: 2em;
-      color: #dab23d; /* Brighter golden for headers */
-  }
-
-  .slider-content p {
-      margin: 0;
-      font-size: 1.8em;
-      line-height: 1.4;
-  }
+}
